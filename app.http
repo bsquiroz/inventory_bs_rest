@@ -1,0 +1,11 @@
+### Listar todas las bodegas
+GET  http://localhost:8080/api/v1/cellars
+
+### Crear una bodega
+POST http://localhost:8080/api/v1/cellars
+Content-Type: application/json
+
+{
+    "name": "europe bodegas bs", 
+    "userId": "1d24317e-5a63-4875-818b-6be0cf96aea7"
+}

@@ -6,6 +6,7 @@ import { db } from "./utils/db.js";
 import { initModels } from "./models/init-models.js";
 
 import { initSeeders } from "./seeders/initSeeders.js";
+import { routerCellars } from "./modules/cellars/cellars-router.js";
 
 db.authenticate()
 	.then(() => console.log("Database Authenticated!!!"))
@@ -42,6 +43,8 @@ app.get("/api/v1/seeders", async (req, res) => {
 		message: "a dormir hp",
 	});
 });
+
+app.use("/api/v1/cellars", routerCellars);
 
 app.listen(PORT, () => {
 	console.log(`server listen on http://localhost:${PORT}`);
