@@ -7,6 +7,7 @@ import { initModels } from "./models/init-models.js";
 
 import { initSeeders } from "./seeders/initSeeders.js";
 import { routerCellars } from "./modules/cellars/cellars-router.js";
+import { routerProducts } from "./modules/products/products-router.js";
 
 db.authenticate()
 	.then(() => console.log("Database Authenticated!!!"))
@@ -45,6 +46,7 @@ app.get("/api/v1/seeders", async (req, res) => {
 });
 
 app.use("/api/v1/cellars", routerCellars);
+app.use("/api/v1/products", routerProducts);
 
 app.listen(PORT, () => {
 	console.log(`server listen on http://localhost:${PORT}`);
