@@ -1,6 +1,8 @@
 # inventario bs
 
-hola hola como estan? bienvenido a este repo en el que se busca como finalidad realizar un inventario sencillo pero funcional.
+hola hola como estan? bienvenido a este repo en el que se busca como finalidad realizar un inventario sencillo pero funcional. <br>
+
+[Documentacion de la REST API](https://inventory-bs-rest.onrender.com/api/v1/doc/) Tambien en el archivo app.http encontraras informacion de la REST API
 
 ## ¿Que tecnologias utilice?
 
