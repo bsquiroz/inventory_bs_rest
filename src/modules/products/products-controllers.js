@@ -24,6 +24,13 @@ export const postProduct = async (req, res) => {
 		const data = await createProduct({ productObj: result.data });
 		res.status(201).json(data);
 	} catch (error) {
+		console.log();
+
+		if (error.name === "SequelizeUniqueConstraintError")
+			return res.status(500).json({
+				error: "name must be unique",
+			});
+
 		res.status(500).json({
 			error: error.message,
 		});
