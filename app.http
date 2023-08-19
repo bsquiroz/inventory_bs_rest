@@ -21,3 +21,13 @@ Content-Type: application/json
     "name": "producto estrella 1", 
     "description": "Este es el mejor producto estrella 1"
 }
+
+### Crear un inventario con bodegaId y productId, (si existe toma el amount y lo suma con este nuevo que entra)
+POST http://localhost:8080/api/v1/inventories
+Content-Type: application/json
+
+{
+    "count": 5,
+    "productId": "f5735c05-46d1-4019-bc17-677f247bc535",
+    "cellarId": "89d524c1-1871-4acd-aa51-76a3279ab1c5"
+}
