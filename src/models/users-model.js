@@ -9,6 +9,7 @@ export const Users = db.define("users", {
 	name: {
 		type: DataTypes.STRING,
 		allowNull: false,
+		unique: true,
 	},
 	photo: {
 		type: DataTypes.STRING,

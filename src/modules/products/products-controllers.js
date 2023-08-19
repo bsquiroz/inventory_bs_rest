@@ -1,4 +1,5 @@
 import { createProduct, getAllProducts } from "./products-services.js";
+import { validateProducts } from "../../schemes/products-scheme.js";
 
 export const getProducts = async (req, res) => {
 	try {
@@ -13,8 +14,14 @@ export const getProducts = async (req, res) => {
 
 export const postProduct = async (req, res) => {
 	try {
-		const newProduct = req.body;
-		const data = await createProduct({ productObj: newProduct });
+		const result = validateProducts(req.body);
+
+		if (result.error)
+			return res.status(400).json({
+				error: JSON.parse(result.error.message),
+			});
+
+		const data = await createProduct({ productObj: result.data });
 		res.status(201).json(data);
 	} catch (error) {
 		res.status(500).json({

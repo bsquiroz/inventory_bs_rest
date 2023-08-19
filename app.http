@@ -9,7 +9,7 @@ POST http://localhost:8080/api/v1/cellars
 Content-Type: application/json
 
 {
-    "name": "europe bodegas bs", 
+    "name": "asian bodegas bs", 
     "userId": "1d24317e-5a63-4875-818b-6be0cf96aea7"
 }
 
@@ -21,7 +21,7 @@ POST http://localhost:8080/api/v1/products
 Content-Type: application/json
 
 {
-    "name": "producto estrella 1", 
+    "name": "PRODUCTO estrella 1", 
     "description": "Este es el mejor producto estrella 1"
 }
 

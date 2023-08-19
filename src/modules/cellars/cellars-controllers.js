@@ -1,4 +1,5 @@
 import { createCellar, getAllCellars } from "./cellars-services.js";
+import { validateCellars } from "../../schemes/cellars-scheme.js";
 
 export const getCellars = async (req, res) => {
 	try {
@@ -13,9 +14,14 @@ export const getCellars = async (req, res) => {
 
 export const postCellar = async (req, res) => {
 	try {
-		const newCellar = req.body;
+		const result = validateCellars(req.body);
 
-		const data = await createCellar({ cellarObj: newCellar });
+		if (result.error)
+			return res.status(400).json({
+				error: JSON.parse(result.error.message),
+			});
+
+		const data = await createCellar({ cellarObj: result.data });
 		res.status(201).json(data);
 	} catch (error) {
 		res.status(500).json({
