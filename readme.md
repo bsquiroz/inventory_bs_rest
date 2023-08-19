@@ -1,53 +1,54 @@
-![imagen backend](./image.PNG)
+# Inventario BS - Sistema de Inventario Sencillo
 
-# inventario bs
+![imagen](./image.PNG)
 
-hola hola como estan? bienvenido a este repo en el que se busca como finalidad realizar un inventario sencillo pero funcional. <br>
+¡Bienvenido al repositorio de Inventario BS! En este repositorio encontrarás un sistema de inventario sencillo pero funcional.
 
-[Documentacion de la REST API](https://inventory-bs-rest.onrender.com/api/v1/doc/) Tambien en el archivo app.http encontraras informacion de la REST API
+## Descripción
 
-## ¿Que tecnologias utilice?
+Este proyecto tiene como objetivo proporcionar una solución de inventario fácil de usar. Puedes acceder a la [Documentación de la REST API](https://inventory-bs-rest.onrender.com/api/v1/doc/) para obtener más detalles. También puedes encontrar información en el archivo `app.http`.
 
--   nodejs con express
--   sequelize con postgres
--   docker
+## Tecnologías Utilizadas
 
-## ¿Como puedes levantar mi proyecto?
+-   Node.js con Express
+-   Sequelize con PostgreSQL
+-   Docker
 
-Ejecuta este comando que te clonara el proyecto
+## Cómo Empezar
 
-```
-git clone https://github.com/bsquiroz/inventory_bs_rest.git
-```
+1. Clona el proyecto usando el siguiente comando:
 
-Despues instala dependencias <br>
-NOTA => Asegurarte que estes dentro del proyecto
+    ```
+    git clone https://github.com/bsquiroz/inventory_bs_rest.git
+    ```
 
-```
-npm i
-```
+2. Instala las dependencias. Asegúrate de estar dentro del directorio del proyecto y ejecuta:
 
-Seria super chevere que tuvieras el docker instalado ya que con esta linea de codigo podrias tener postgres y pgstore corriendo en tu maquina
+    ```
+    npm install
+    ```
 
-```
-docker-compose up -d
-```
+3. Opcional pero recomendado: Si tienes Docker instalado, puedes ejecutar el siguiente comando para tener PostgreSQL y Pgstore en ejecución:
 
-Y sino, (Aunque es lo recomendado) y en archivo .env que esta en la raiz del proyecto vas a cambiar mis credenciales por las tuyas
+    ```
+    docker-compose up -d
+    ```
 
-```
-DB_DIALECT=postgres
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=TU USERNAME DE POSTGRES
-DB_PASSWORD=TU PASSWORD DE POSTGRES
-DB_DATABASE=EL NOMBRE QUE LE DISTE A LA BASE DE DATOS
-```
+4. Si no usas Docker, asegúrate de modificar el archivo `.env` en la raíz del proyecto con tus propias credenciales de PostgreSQL:
 
-y por ultimo podrias ejecutar el comando para iniciar el proyecto
+    ```
+    DB_DIALECT=postgres
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USERNAME=TU USUARIO DE POSTGRES
+    DB_PASSWORD=TU CONTRASEÑA DE POSTGRES
+    DB_DATABASE=NOMBRE DE TU BASE DE DATOS
+    ```
 
-```
-npm run start
-```
+5. Para iniciar el proyecto, ejecuta:
 
-<b>Y ya, con esto ya tendrias este backend corriendo en tu maquina</b>
+    ```
+    npm run start
+    ```
+
+Con estos pasos, tendrás el backend en funcionamiento en tu máquina.
