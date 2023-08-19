@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { getCellers, postCeller } from "./cellars-controllers.js";
+import { getCellars, postCellar } from "./cellars-controllers.js";
 
 export const routerCellars = Router();
 
-routerCellars.get("/", getCellers);
-routerCellars.post("/", postCeller);
+routerCellars.get("/", getCellars);
+routerCellars.post("/", postCellar);

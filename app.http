@@ -34,3 +34,14 @@ Content-Type: application/json
     "productId": "f5735c05-46d1-4019-bc17-677f247bc535",
     "cellarId": "89d524c1-1871-4acd-aa51-76a3279ab1c5"
 }
+
+### Permite mover cantidad de productos entre bodegas y generar un historial de movimientos 
+POST http://localhost:8080/api/v1/inventories/move
+Content-Type: application/json
+
+{
+    "count": 5,
+    "cellarIdOrigin": "40eed4fd-9f90-45b8-ab77-e1b7ba61a45d",
+    "cellarIdDestiny": "9032a571-c0bf-49f7-9c4c-4bfa26f907be", 
+    "productId": "b0472a4c-85c3-41ae-b145-9d788b35e2b6"
+}
