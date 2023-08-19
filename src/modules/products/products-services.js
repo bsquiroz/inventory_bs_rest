@@ -2,7 +2,6 @@ import { Sequelize } from "sequelize";
 
 import { Products } from "../../models/products-model.js";
 import { Inventories } from "../../models/inventories-model.js";
-import { Cellars } from "../../models/cellars-model.js";
 import { v4 as uuid } from "uuid";
 
 export const getAllProducts = async () => {
@@ -29,27 +28,24 @@ export const getAllProducts = async () => {
 	return data;
 };
 
-export const createProduct = async ({ productObj, countProduct, cellarId }) => {
+export const createProduct = async ({ productObj }) => {
 	const newProduct = {
 		id: uuid(),
 		name: productObj.name,
 		description: productObj.description,
 	};
 
-	const dataProduct = await Products(newProduct);
-
-	const count = countProduct || 1;
-	const cellar = cellarId || "5106b1d5-d25c-4dbe-9965-cabddf87e0f6";
+	const dataProduct = await Products.create(newProduct);
 
 	const newInventory = {
 		id: uuid(),
-		count: count,
 		productId: dataProduct.id,
-		cellarId: cellar.id,
+		count: productObj.count || 1,
+		cellarId: productObj.cellarId || "5106b1d5-d25c-4dbe-9965-cabddf87e0f6",
 		state: true,
 	};
 
-	const dataInventory = await Inventories(newInventory);
+	const dataInventory = await Inventories.create(newInventory);
 
 	return { product: dataProduct, inventory: dataInventory };
 };
