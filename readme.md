@@ -2,10 +2,6 @@
 
 hola hola como estan? bienvenido a este repo en el que se busca como finalidad realizar un inventario sencillo pero funcional.
 
-Esta es la API desplegada <br>
-[inventariobs.com](https://inventoryrestapibs.onrender.com/) <br>
-En el archivo app.htpp estan las rutas que puedes visitar.
-
 ## ¿Que tecnologias utilice?
 
 -   nodejs con express
