@@ -5,10 +5,10 @@ import { config } from "../config.js";
 import { db } from "./utils/db.js";
 import { initModels } from "./models/init-models.js";
 
-import { initSeeders } from "./seeders/initSeeders.js";
 import { routerCellars } from "./modules/cellars/cellars-router.js";
 import { routerProducts } from "./modules/products/products-router.js";
 import { routerInventories } from "./modules/inventaries/inventories-router.js";
+import { routerSeeders } from "./modules/seeders/seeders-router.js";
 
 db.authenticate()
 	.then(() => console.log("Database Authenticated!!!"))
@@ -33,22 +33,10 @@ app.get("/", (req, res) => {
 	});
 });
 
-app.get("/api/v1/seeders", async (req, res) => {
-	const response = await initSeeders();
-
-	if (!response)
-		return res.status(500).json({
-			message: "error trying insert seeders",
-		});
-
-	res.status(200).json({
-		message: "successfully insert seeders!!!",
-	});
-});
-
 app.use("/api/v1/cellars", routerCellars);
 app.use("/api/v1/products", routerProducts);
 app.use("/api/v1/inventories", routerInventories);
+app.use("/api/v1/seeders", routerSeeders);
 
 app.listen(PORT, () => {
 	console.log(`server listen on http://localhost:${PORT}`);
