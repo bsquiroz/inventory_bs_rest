@@ -8,6 +8,16 @@ export const getAllCellars = async () => {
 	return data;
 };
 
+export const findCellarById = async (id) => {
+	const foundCellar = await Cellars.findOne({
+		where: { id },
+	});
+
+	if (!foundCellar) return null;
+
+	return foundCellar;
+};
+
 export const createCellar = async ({ cellarObj }) => {
 	const newCellar = {
 		id: uuid(),

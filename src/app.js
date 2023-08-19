@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
 
+import swaggerUI from "swagger-ui-express";
+import { readJson } from "./utils/readJson.js";
+const swaggerDoc = readJson("../../swagger.json");
+
 import { config } from "../config.js";
 import { db } from "./utils/db.js";
 import { initModels } from "./models/init-models.js";
@@ -29,10 +33,11 @@ const PORT = config.PORT;
 
 app.get("/", (req, res) => {
 	res.status(200).json({
-		message: "Welcome to api from bsquiroz /api/v1",
+		message: "Welcome to api from bsquiroz, /api/v1/doc",
 	});
 });
 
+app.use("/api/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc));
 app.use("/api/v1/cellars", routerCellars);
 app.use("/api/v1/products", routerProducts);
 app.use("/api/v1/inventories", routerInventories);

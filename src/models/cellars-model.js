@@ -11,6 +11,7 @@ export const Cellars = db.define("cellars", {
 	name: {
 		type: DataTypes.STRING,
 		allowNull: false,
+		unique: true,
 	},
 	userId: {
 		type: DataTypes.UUID,

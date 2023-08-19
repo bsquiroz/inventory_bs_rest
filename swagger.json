@@ -1,0 +1,167 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "API INVENTORY BS",
+		"version": "1.0.0"
+	},
+	"paths": {
+		"/api/v1/cellars": {
+			"get": {
+				"responses": {
+					"200": {
+						"description": "Retorna todas las bodegas"
+					}
+				}
+			},
+			"post": {
+				"requestBody": {
+					"description": "objeto json que se encarga de crear bodega",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"description": "Nombre de la bodega",
+										"example": "Bodega Ejemplo"
+									},
+									"userId": {
+										"type": "string",
+										"description": "Id de la persona que esta encarga de la bodega",
+										"example": "1d24317e-5a63-4875-818b-6be0cf96aea7"
+									}
+								},
+								"required": ["name", "userId"]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/cellars/{id}": {
+			"get": {
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Al hacer esta peticion deberia retornar la bodega buscada"
+					}
+				}
+			}
+		},
+		"/api/v1/products": {
+			"get": {
+				"responses": {
+					"200": {
+						"description": "Retorna todos los productos"
+					}
+				}
+			},
+			"post": {
+				"requestBody": {
+					"description": "objeto json que se encarga de crear un producto",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"description": "Nombre de la bodega",
+										"example": "Nombre del producto"
+									},
+									"description": {
+										"type": "string",
+										"description": "Descripcion del producto",
+										"example": "Esta es la description del producto"
+									}
+								},
+								"required": ["name", "description"]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/inventories": {
+			"post": {
+				"requestBody": {
+					"description": "objeto json que se encarga de crear inventario",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"count": {
+										"type": "number",
+										"description": "Cantidad del producto",
+										"example": 3
+									},
+									"productId": {
+										"type": "string",
+										"description": "Id del producto a ingresar al inventario",
+										"example": "f5735c05-46d1-4019-bc17-677f247bc535"
+									},
+									"cellarId": {
+										"type": "string",
+										"description": "Id de la bodega para guardar el inventario",
+										"example": "89d524c1-1871-4acd-aa51-76a3279ab1c5"
+									}
+								},
+								"required": ["count", "productId", "cellarId"]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/inventories/move": {
+			"post": {
+				"requestBody": {
+					"description": "objeto json que se encarga de mover las cantidades entre bodegas y generar el reporte en la tabla histories",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"count": {
+										"type": "number",
+										"description": "Cantidad del producto",
+										"example": 3
+									},
+									"productId": {
+										"type": "string",
+										"description": "Id del producto del cual se va a modificar su cantidad",
+										"example": "b0472a4c-85c3-41ae-b145-9d788b35e2b6"
+									},
+									"cellarIdOrigin": {
+										"type": "string",
+										"description": "Bodega de donde extraemos la cantidad",
+										"example": "40eed4fd-9f90-45b8-ab77-e1b7ba61a45d"
+									},
+									"cellarIdDestiny": {
+										"type": "string",
+										"description": "Bodega de donde insertamos  la cantidad",
+										"example": "9032a571-c0bf-49f7-9c4c-4bfa26f907be"
+									}
+								},
+								"required": ["count", "productId", "cellarId"]
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
