@@ -1,10 +1,10 @@
-### realizar los seeders, solo se realizan una sola vez
+### ! realizar los seeders, solo se realizan una sola vez
 GET http://localhost:8080/api/v1/seeders
 
-### Listar todas las bodegas
+### ! Listar todas las bodegas
 GET  http://localhost:8080/api/v1/cellars
 
-### Crear una bodega
+### ! Crear una bodega
 POST http://localhost:8080/api/v1/cellars
 Content-Type: application/json
 
@@ -13,10 +13,10 @@ Content-Type: application/json
     "userId": "1d24317e-5a63-4875-818b-6be0cf96aea7"
 }
 
-### Listar todos los productos
+### ! Listar todos los productos
 GET  http://localhost:8080/api/v1/products
 
-### Crear un producto
+### ! Crear un producto
 POST http://localhost:8080/api/v1/products
 Content-Type: application/json
 
@@ -25,7 +25,7 @@ Content-Type: application/json
     "description": "Este es el mejor producto estrella 1"
 }
 
-### Crear un inventario con bodegaId y productId, (si existe toma el amount y lo suma con este nuevo que entra)
+### ! Crear un inventario con bodegaId y productId, (si existe toma el amount y lo suma con este nuevo que entra)
 POST http://localhost:8080/api/v1/inventories
 Content-Type: application/json
 
@@ -35,7 +35,7 @@ Content-Type: application/json
     "cellarId": "89d524c1-1871-4acd-aa51-76a3279ab1c5"
 }
 
-### Permite mover cantidad de productos entre bodegas y generar un historial de movimientos 
+### ! Permite mover cantidad de productos entre bodegas y generar un historial de movimientos 
 POST http://localhost:8080/api/v1/inventories/move
 Content-Type: application/json
 
