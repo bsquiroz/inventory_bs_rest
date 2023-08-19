@@ -1,3 +1,5 @@
+![imagen backend](./image.PNG)
+
 # inventario bs
 
 hola hola como estan? bienvenido a este repo en el que se busca como finalidad realizar un inventario sencillo pero funcional. <br>
